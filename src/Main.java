@@ -1,32 +1,33 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList<String> spisok = new LinkedList<>();
-        spisok.add("WAKEUP");
-        spisok.add("SCHOOL");
-        spisok.add("RUST");
-        spisok.add("WORK");
-        spisok.add("REPEAT");
+        // Создание списка строк и добавление 5 слов в него
+        List<String> слова = new ArrayList<>();
+        слова.add("ПРОСНИСЬ");
+        слова.add("ШКОЛА");
+        слова.add("РЖАВЧИНА");
+        слова.add("ПОВТОРЯЙ");
 
-        LinkedList<String> doublelist = new LinkedList<>();
+        // Вызов метода для удвоения слов
+        удвоитьЗначения(слова);
 
-        for (String letter : spisok) {
-            //Переменная doubleword будет принимать значение каджой буквы
-            String doubleword = "";
-            for (int i = 0; i < letter.length(); i++){
-                char word = letter.charAt(i);
-                //Отвечает за подвоение каждой буквы
-                doubleword += word;
-                doubleword += word;
-            }
-            //Отвечает за добовление каждого слова в список
-            doublelist.add(doubleword);
+        // Вывод результата на экран
+        for (String слово : слова) {
+            System.out.println(слово);
         }
-        //Тут Список выводится -
-        for (String doubleword : doublelist) {
-            System.out.println(doubleword);
+    }
+
+    // Метод для удвоения слов в коллекции
+    public static void удвоитьЗначения(List<String> список) {
+        List<String> исходныеСлова = new ArrayList<>(список);
+        список.clear(); // Очищаем исходный список
+
+        for (String слово : исходныеСлова) {
+            список.add(слово);
+            список.add(слово); // Добавляем слово дважды
         }
     }
 }
